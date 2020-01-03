@@ -59,5 +59,30 @@ def walk_dogs
     dog.mood = "happy"
   end 
 end 
-
+def feed_cats
+    Cat.all.each do |cat|
+      cat.mood = "happy"
+    end 
+  end 
+  
+  def sell_pets
+    Cat.all.each do |cat|
+      if cat.owner == self 
+        cat.mood = "nervous"
+        cat.owner = nil   
+      end 
+    end 
+    Dog.all.each do |dog|
+      if dog.owner == self 
+        dog.mood = "nervous" 
+        dog.owner = nil   
+      end 
+    end 
+  end 
+  
+  def list_pets
+    number_of_cats = Cat.all.select {|cat| cat.owner == self}.length 
+    number_of_dogs = Dog.all.select {|dog| dog.owner == self}.length
+    "I have #{number_of_dogs} dog(s), and #{number_of_cats} cat(s)."
+  end 
 end
