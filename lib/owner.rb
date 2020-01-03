@@ -18,13 +18,13 @@ class Owner
     "I am a #{species}."
   end 
   
-  dwf self.all_owner
+  def self.all_owner
   @@all_owner
-end 
+  end 
 
-def self.count 
+  def self.count 
   self.all.length 
-end 
+  end 
 
 def self.reset_all 
   self.all.clear
