@@ -1,65 +1,65 @@
 class Owner
-  # code goes here
-  attr_accessor 
+  attr_accessor   
   attr_reader :name, :species 
-  @@all_owner =[]
+  @@all_owners = [] 
   
-  def initialize(name,species="human")
+  def initialize(name, species = "human")
     @name = name
-    @species = species
-    save 
+    @species = species 
+    save
   end 
   
-  def save 
-    @@all_owner << self 
+  def save
+    @@all_owners << self 
   end 
   
-  def say_species 
+  def say_species
     "I am a #{species}."
   end 
   
-  def self.all_owner
-  @@all_owner
+  def self.all 
+    @@all_owners 
   end 
-
+  
   def self.count 
-  self.all.length 
+    self.all.length 
   end 
-
-  def self.reset_all 
-  self.all.clear
-end 
-
-def add_cat(cat)
-  cat.owner = self 
-end 
-
-def add_dog(dog) 
-  dog.owner = self 
-end 
-
-def cats 
-  Cat.all.select {|cat| cat.owner == self}
-end 
-
-def dogs 
-  Dog.all.select {|dog| dog.owner == self}
-end 
-
-def buy_cat(name)
-  Cat.new(name, self)
-end 
-
-def buy_dog(name)
-  Dog.new(name, self)
-end 
-
-def walk_dogs 
-  Dog.all.each do |dog|
-    dog.mood = "happy"
+  
+  def self.reset_all
+    self.all.clear 
   end 
-end 
-def feed_cats
+  
+  def add_cat(cat)
+    cat.owner = self 
+  end 
+  
+  def add_dog(dog)
+    dog.owner = self 
+  end 
+  
+  def cats 
+    Cat.all.select {|cat| cat.owner == self}  
+  end 
+  
+  def dogs  
+    Dog.all.select {|dog| dog.owner == self}  
+  end 
+  
+  def buy_cat(name)
+    Cat.new(name, self )  
+  end 
+  
+  def buy_dog(name)
+    Dog.new(name, self) 
+  end 
+  
+  def walk_dogs
+    Dog.all.each do |dog|
+      dog.mood = "happy"
+    end 
+  end 
+  
+  def feed_cats
     Cat.all.each do |cat|
       cat.mood = "happy"
     end 
